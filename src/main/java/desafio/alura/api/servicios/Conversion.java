@@ -10,4 +10,53 @@ public class Conversion {
     private double cantidad;
     private double resultado;
     private LocalDateTime fechaConversion;
+
+    public Conversion(Moneda monedaInicial, Moneda monedaFinal, double cantidad, double resultado, LocalDateTime fechaConversion) {
+        this.monedaInicial = monedaInicial;
+        this.monedaFinal = monedaFinal;
+        this.cantidad = cantidad;
+        this.resultado = resultado;
+        this.fechaConversion = fechaConversion;
+    }
+
+    public Moneda getMonedaInicial() {
+        return monedaInicial;
+    }
+
+    public void setMonedaInicial(Moneda monedaInicial) {
+        this.monedaInicial = monedaInicial;
+    }
+
+    public Moneda getMonedaFinal() {
+        return monedaFinal;
+    }
+
+    public void setMonedaFinal(Moneda monedaFinal) {
+        this.monedaFinal = monedaFinal;
+    }
+
+    public double getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(double cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public double getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(double resultado) {
+        this.resultado = resultado;
+    }
+
+    public LocalDateTime getFechaConversion() {
+        return fechaConversion;
+    }
+
+    public void setFechaConversion(LocalDateTime fechaConversion) {
+        this.fechaConversion = fechaConversion;
+    }
 }
+
