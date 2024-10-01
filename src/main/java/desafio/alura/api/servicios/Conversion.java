@@ -58,5 +58,21 @@ public class Conversion {
     public void setFechaConversion(LocalDateTime fechaConversion) {
         this.fechaConversion = fechaConversion;
     }
+
+    public String getMessage(){
+        return "El valor " + cantidad + " [" + monedaInicial + "] corresponde al valor final de => " + resultado + " [" + monedaFinal + "]\n";
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "Moneda inicial = " + monedaInicial +
+                ", Moneda final = " + monedaFinal +
+                ", Valor inicial = " + cantidad +
+                ", Resultado = " + resultado +
+                ", Fecha = " + fechaConversion +
+                '}'+ "\n";
+    }
+
 }
 
