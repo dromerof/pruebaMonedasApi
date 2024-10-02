@@ -1,78 +1,75 @@
 package desafio.alura.api.servicios;
 
 import desafio.alura.api.modelos.Moneda;
-
 import java.time.LocalDateTime;
 
 public class Conversion {
-    private Moneda monedaInicial;
-    private Moneda monedaFinal;
-    private double cantidad;
-    private double resultado;
-    private LocalDateTime fechaConversion;
+    private Moneda fromCurrency;
+    private Moneda toCurrency;
+    private  double amount;
+    private double result;
+    private LocalDateTime conversionDate;
 
-    public Conversion(Moneda monedaInicial, Moneda monedaFinal, double cantidad, double resultado, LocalDateTime fechaConversion) {
-        this.monedaInicial = monedaInicial;
-        this.monedaFinal = monedaFinal;
-        this.cantidad = cantidad;
-        this.resultado = resultado;
-        this.fechaConversion = fechaConversion;
+    public Conversion(Moneda fromCurrency, Moneda toCurrency, double amount, double result) {
+        this.fromCurrency = fromCurrency;
+        this.toCurrency = toCurrency;
+        this.amount = amount;
+        this.result = result;
+        this.conversionDate = LocalDateTime.now();
     }
 
-    public Moneda getMonedaInicial() {
-        return monedaInicial;
+    public Moneda getFromCurrency() {
+        return fromCurrency;
     }
 
-    public void setMonedaInicial(Moneda monedaInicial) {
-        this.monedaInicial = monedaInicial;
+    public void setFromCurrency(Moneda fromCurrency) {
+        this.fromCurrency = fromCurrency;
     }
 
-    public Moneda getMonedaFinal() {
-        return monedaFinal;
+    public Moneda getToCurrency() {
+        return toCurrency;
     }
 
-    public void setMonedaFinal(Moneda monedaFinal) {
-        this.monedaFinal = monedaFinal;
+    public void setToCurrency(Moneda toCurrency) {
+        this.toCurrency = toCurrency;
     }
 
-    public double getCantidad() {
-        return cantidad;
+    public double getAmount() {
+        return amount;
     }
 
-    public void setCantidad(double cantidad) {
-        this.cantidad = cantidad;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
-    public double getResultado() {
-        return resultado;
+    public double getResult() {
+        return result;
     }
 
-    public void setResultado(double resultado) {
-        this.resultado = resultado;
+    public void setResult(double result) {
+        this.result = result;
     }
 
-    public LocalDateTime getFechaConversion() {
-        return fechaConversion;
+    public LocalDateTime getConversionDate() {
+        return conversionDate;
     }
 
-    public void setFechaConversion(LocalDateTime fechaConversion) {
-        this.fechaConversion = fechaConversion;
+    public void setConversionDate(LocalDateTime conversionDate) {
+        this.conversionDate = conversionDate;
     }
 
     public String getMessage(){
-        return "El valor " + cantidad + " [" + monedaInicial + "] corresponde al valor final de => " + resultado + " [" + monedaFinal + "]\n";
+        return "El valor " + amount + " [" + fromCurrency + "] corresponde al valor final de => " + result + " [" + toCurrency + "]\n";
     }
 
     @Override
     public String toString() {
         return "{" +
-                "Moneda inicial = " + monedaInicial +
-                ", Moneda final = " + monedaFinal +
-                ", Valor inicial = " + cantidad +
-                ", Resultado = " + resultado +
-                ", Fecha = " + fechaConversion +
+                "Moneda inicial = " + fromCurrency +
+                ", Moneda final = " + toCurrency +
+                ", Valor inicial = " + amount +
+                ", Resultado = " + result +
+                ", Fecha = " + conversionDate +
                 '}'+ "\n";
     }
-
 }
-
