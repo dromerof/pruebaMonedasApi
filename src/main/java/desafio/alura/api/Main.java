@@ -45,7 +45,7 @@ public class Main {
                 menu = keyboard.nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("Error, no estás ingresando un número válido \n");
-                keyboard.next(); // Limpiar el buffer
+                keyboard.next();
                 continue;
             }
 
@@ -67,7 +67,7 @@ public class Main {
                         System.out.println("Lista vacía, no ha hecho ninguna conversión");
                     } else {
                         for (Conversion conversion : conversions) {
-                            System.out.println(conversion); // Llama automáticamente al método toString()
+                            System.out.println(conversion);
                         }
                     }
                 }

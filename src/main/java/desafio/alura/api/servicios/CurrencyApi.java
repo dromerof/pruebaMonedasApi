@@ -11,7 +11,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-
 public class CurrencyApi {
 
     private final String API_URL;
@@ -44,6 +43,5 @@ public class CurrencyApi {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

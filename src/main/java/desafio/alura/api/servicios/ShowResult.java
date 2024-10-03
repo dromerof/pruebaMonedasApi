@@ -17,13 +17,17 @@ public class ShowResult {
             System.out.println("Diga el valor que desea convertir de " + from + " a " + to);
             String input = keyboard.next().replace(",", ".");
 
+            if (!input.matches("-?\\d+(\\.\\d+)?")) {
+                System.out.println("Por favor, coloca un valor numérico válido.\n");
+                continue;
+            }
+
             amount = parseNumber(input, Locale.US);
 
             if (Double.isNaN(amount)) {
                 System.out.println("Por favor coloca un valor válido\n");
             }
         }
-
         return Optional.of(currencyApi.convertCurrency(from, to, amount));
     }
 
