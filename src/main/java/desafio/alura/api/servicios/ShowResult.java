@@ -22,7 +22,7 @@ public class ShowResult {
                 continue;
             }
 
-            amount = parseNumber(input, Locale.US);
+            amount = parseNumber(input);
 
             if (Double.isNaN(amount)) {
                 System.out.println("Por favor coloca un valor válido\n");
@@ -31,12 +31,13 @@ public class ShowResult {
         return Optional.of(currencyApi.convertCurrency(from, to, amount));
     }
 
-    private static double parseNumber(String input, Locale locale) {
-        NumberFormat numberFormat = NumberFormat.getInstance(locale);
+    private static double parseNumber(String input) {
+        NumberFormat numberFormat = NumberFormat.getInstance(Locale.US);
         try {
             return numberFormat.parse(input).doubleValue();
         } catch (ParseException e) {
             return Double.NaN;
         }
     }
+
 }
