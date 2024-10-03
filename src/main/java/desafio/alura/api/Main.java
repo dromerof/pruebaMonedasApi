@@ -11,8 +11,7 @@ import static desafio.alura.api.servicios.ShowResult.showResultMenu;
 public class Main {
     public static void main(String[] args) {
         CurrencyApi currencyApi = new CurrencyApi();
-        Optional<Conversion> conversion;
-        List<Optional<Conversion>> conversions = new ArrayList<>();
+        List<Conversion> conversions = new ArrayList<>();
         Scanner keyboard = new Scanner(System.in);
         int menu = -1;
 
@@ -33,7 +32,7 @@ public class Main {
         while (menu != 0) {
             System.out.println("Selecciona una opción del siguiente menú: \n");
             System.out.println("1. Dólar => Peso colombiano");
-            System.out.println("2. Peso colombiano => Dolar");
+            System.out.println("2. Peso colombiano => Dólar");
             System.out.println("3. Dólar => Real Brasileño");
             System.out.println("4. Real Brasileño => Dólar");
             System.out.println("5. Dólar => Peso argentino");
@@ -45,7 +44,7 @@ public class Main {
             try {
                 menu = keyboard.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Error, no estas ingresando un número válido \n");
+                System.out.println("Error, no estás ingresando un número válido \n");
                 keyboard.next(); // Limpiar el buffer
                 continue;
             }
@@ -53,16 +52,23 @@ public class Main {
             switch (menu) {
                 case 1, 2, 3, 4, 5, 6, 7, 8 -> {
                     Currency[] currencies = conversionMap.get(menu);
-                    conversion = showResultMenu(keyboard, currencyApi, currencies[0], currencies[1]);
-                    System.out.println(conversion.get().getMessage());
-                    conversions.add(conversion);
+                    Optional<Conversion> conversionOptional = showResultMenu(keyboard, currencyApi, currencies[0], currencies[1]);
+
+                    conversionOptional.ifPresentOrElse(conversion -> {
+                        System.out.println(conversion.getMessage());
+                        conversions.add(conversion);
+                    }, () -> {
+                        System.out.println("No se pudo realizar la conversión.");
+                    });
                 }
                 case 9 -> {
                     System.out.println("Historial de conversiones:\n");
                     if (conversions.isEmpty()) {
                         System.out.println("Lista vacía, no ha hecho ninguna conversión");
                     } else {
-                        System.out.println(conversions);
+                        for (Conversion conversion : conversions) {
+                            System.out.println(conversion); // Llama automáticamente al método toString()
+                        }
                     }
                 }
                 case 0 -> System.out.println("Saliendo del sistema \n");

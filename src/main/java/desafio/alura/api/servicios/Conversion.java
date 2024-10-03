@@ -50,7 +50,18 @@ public class Conversion {
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        return String.format("{Moneda inicial = %s, Moneda final = %s, Valor inicial = %.2f, Resultado = %.2f, Fecha = %s}\n",
-                fromCurrency, toCurrency, amount, result, conversionDate.format(formatter));
+        return String.format(
+                """
+                        ------------------------------------------------
+                        Moneda inicial: %s
+                        Moneda final: %s
+                        Valor inicial: %.2f
+                        Resultado: %.2f
+                        Fecha: %s
+                        ------------------------------------------------
+                        """,
+                fromCurrency, toCurrency, amount, result, conversionDate.format(formatter)
+        );
     }
+
 }
