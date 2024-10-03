@@ -2,7 +2,7 @@ package desafio.alura.api.servicios;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import desafio.alura.api.modelos.Moneda;
+import desafio.alura.api.modelos.Currency;
 import io.github.cdimascio.dotenv.Dotenv;
 
 import java.io.IOException;
@@ -20,11 +20,11 @@ public class CurrencyApi {
     public CurrencyApi() {
         Dotenv dotenv = Dotenv.load();
 
-        this.API_URL = dotenv.get("BASE_URL");
+        this.API_URL = dotenv.get("API_URL");
         this.API_KEY = dotenv.get("API_KEY");
     }
 
-    public Conversion convertCurrency(Moneda from, Moneda to, double amount) {
+    public Conversion convertCurrency(Currency from, Currency to, double amount) {
 
         String urlSearch = String.format("%s%s/pair/%s/%s/%s", API_URL, API_KEY, from, to, amount);
 

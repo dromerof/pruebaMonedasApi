@@ -1,9 +1,9 @@
 package desafio.alura.api.modelos;
 
-public enum Moneda {
+public enum Currency {
     USD,
-    EUR,
     COP,
     ARS,
-    BRL
+    BRL,
+    EUR
 }

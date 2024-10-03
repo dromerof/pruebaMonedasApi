@@ -1,6 +1,6 @@
 package desafio.alura.api.servicios;
 
-import desafio.alura.api.modelos.Moneda;
+import desafio.alura.api.modelos.Currency;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class ShowResult {
 
-    public static Conversion showResultMenu(Scanner keyboard, CurrencyApi currencyApi, Moneda from, Moneda to) {
+    public static Conversion showResultMenu(Scanner keyboard, CurrencyApi currencyApi, Currency from, Currency to) {
         double amount = Double.NaN;
 
         while (Double.isNaN(amount)){

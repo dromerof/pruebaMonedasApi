@@ -1,16 +1,16 @@
 package desafio.alura.api.servicios;
 
-import desafio.alura.api.modelos.Moneda;
+import desafio.alura.api.modelos.Currency;
 import java.time.LocalDateTime;
 
 public class Conversion {
-    private Moneda fromCurrency;
-    private Moneda toCurrency;
+    private Currency fromCurrency;
+    private Currency toCurrency;
     private  double amount;
     private double result;
     private LocalDateTime conversionDate;
 
-    public Conversion(Moneda fromCurrency, Moneda toCurrency, double amount, double result) {
+    public Conversion(Currency fromCurrency, Currency toCurrency, double amount, double result) {
         this.fromCurrency = fromCurrency;
         this.toCurrency = toCurrency;
         this.amount = amount;
@@ -18,19 +18,19 @@ public class Conversion {
         this.conversionDate = LocalDateTime.now();
     }
 
-    public Moneda getFromCurrency() {
+    public Currency getFromCurrency() {
         return fromCurrency;
     }
 
-    public void setFromCurrency(Moneda fromCurrency) {
+    public void setFromCurrency(Currency fromCurrency) {
         this.fromCurrency = fromCurrency;
     }
 
-    public Moneda getToCurrency() {
+    public Currency getToCurrency() {
         return toCurrency;
     }
 
-    public void setToCurrency(Moneda toCurrency) {
+    public void setToCurrency(Currency toCurrency) {
         this.toCurrency = toCurrency;
     }
 
