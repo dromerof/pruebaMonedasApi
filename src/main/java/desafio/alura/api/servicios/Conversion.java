@@ -1,14 +1,17 @@
 package desafio.alura.api.servicios;
 
 import desafio.alura.api.modelos.Currency;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Conversion {
-    private Currency fromCurrency;
-    private Currency toCurrency;
-    private  double amount;
-    private double result;
-    private LocalDateTime conversionDate;
+    private final Currency fromCurrency;
+    private final Currency toCurrency;
+    private final double amount;
+    private final double result;
+    private final LocalDateTime conversionDate;
+
 
     public Conversion(Currency fromCurrency, Currency toCurrency, double amount, double result) {
         this.fromCurrency = fromCurrency;
@@ -22,54 +25,32 @@ public class Conversion {
         return fromCurrency;
     }
 
-    public void setFromCurrency(Currency fromCurrency) {
-        this.fromCurrency = fromCurrency;
-    }
-
     public Currency getToCurrency() {
         return toCurrency;
-    }
-
-    public void setToCurrency(Currency toCurrency) {
-        this.toCurrency = toCurrency;
     }
 
     public double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
     public double getResult() {
         return result;
-    }
-
-    public void setResult(double result) {
-        this.result = result;
     }
 
     public LocalDateTime getConversionDate() {
         return conversionDate;
     }
 
-    public void setConversionDate(LocalDateTime conversionDate) {
-        this.conversionDate = conversionDate;
-    }
 
-    public String getMessage(){
-        return "El valor " + amount + " [" + fromCurrency + "] corresponde al valor final de => " + result + " [" + toCurrency + "]\n";
+    public String getMessage() {
+        return String.format("El valor %.2f [%s] corresponde al valor final de => %.2f [%s]\n",
+                amount, fromCurrency, result, toCurrency);
     }
 
     @Override
     public String toString() {
-        return "{" +
-                "Moneda inicial = " + fromCurrency +
-                ", Moneda final = " + toCurrency +
-                ", Valor inicial = " + amount +
-                ", Resultado = " + result +
-                ", Fecha = " + conversionDate +
-                '}'+ "\n";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        return String.format("{Moneda inicial = %s, Moneda final = %s, Valor inicial = %.2f, Resultado = %.2f, Fecha = %s}\n",
+                fromCurrency, toCurrency, amount, result, conversionDate.format(formatter));
     }
 }
