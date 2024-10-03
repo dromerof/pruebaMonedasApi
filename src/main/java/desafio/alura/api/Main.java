@@ -23,7 +23,6 @@ public class Main {
         conversionMap.put(1, new Currency[]{Currency.USD, Currency.COP});
         conversionMap.put(2, new Currency[]{Currency.COP, Currency.USD});
         conversionMap.put(3, new Currency[]{Currency.USD, Currency.BRL});
-        conversionMap.put(4, new Currency[]{Currency.BRL, Currency.USD});
         conversionMap.put(5, new Currency[]{Currency.USD, Currency.ARS});
         conversionMap.put(6, new Currency[]{Currency.ARS, Currency.USD});
         conversionMap.put(7, new Currency[]{Currency.USD, Currency.EUR});
