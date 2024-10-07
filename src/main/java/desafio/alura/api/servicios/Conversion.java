@@ -44,7 +44,7 @@ public class Conversion {
 
     public String getMessage() {
         return String.format(
-                "El valor %.2f [%s] corresponde al valor final de => %.2f [%s]\n%s",
+                "El valor de %.2f %s corresponde al valor de => %.2f %s\n%s",
                 amount, fromCurrency, result, toCurrency, "----------------------------------------------------------------------\n"
         );
     }
