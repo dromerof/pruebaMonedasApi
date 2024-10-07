@@ -43,22 +43,26 @@ public class Conversion {
 
 
     public String getMessage() {
-        return String.format("El valor %.2f [%s] corresponde al valor final de => %.2f [%s]\n",
-                amount, fromCurrency, result, toCurrency);
+        return String.format(
+                "El valor %.2f [%s] corresponde al valor final de => %.2f [%s]\n%s",
+                amount, fromCurrency, result, toCurrency, "----------------------------------------------------------------------\n"
+        );
     }
+
+
 
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         return String.format(
                 """
-                        ------------------------------------------------
+                        ----------------------------------------------------------------------
                         Moneda inicial: %s
                         Moneda final: %s
                         Valor inicial: %.2f
                         Resultado: %.2f
                         Fecha: %s
-                        ------------------------------------------------
+                        ----------------------------------------------------------------------
                         """,
                 fromCurrency, toCurrency, amount, result, conversionDate.format(formatter)
         );

@@ -15,7 +15,7 @@ public class Main {
         Scanner keyboard = new Scanner(System.in);
         int menu = -1;
 
-        System.out.println("*************************************");
+        System.out.println("----------------------------------------------------------------------");
         System.out.println("Bienvenido al conversor de monedas \n");
 
         // Mapa de opciones de conversión
@@ -40,6 +40,7 @@ public class Main {
             System.out.println("8. Euro => Dólar");
             System.out.println("9. Historial");
             System.out.println("0. Salir");
+            System.out.println("----------------------------------------------------------------------");
             try {
                 menu = keyboard.nextInt();
             } catch (InputMismatchException e) {
